@@ -13,14 +13,14 @@ function calculateRentalCost(days) {
 
   const totalCost = basePrice * days;
 
-  let discountPrice = 0;
+  const discountPrice = totalCost;
 
   if (days >= minDays && days < maxDays) {
-    discountPrice = totalCost - discountMin;
-  } else if (days >= maxDays) {
-    discountPrice = totalCost - discountMax;
-  } else {
-    discountPrice = totalCost;
+    return discountPrice - discountMin;
+  }
+
+  if (days >= maxDays) {
+    return discountPrice - discountMax;
   }
 
   return discountPrice;
